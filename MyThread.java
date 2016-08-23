@@ -8,8 +8,13 @@ public class MyThread implements Runnable {
     public void run() {
 
         for (int i = 0; i < 30; i++) {
-            System.out.println("My first thread." + i);
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException ex) {
+                System.out.println("Something wrong happened");
+            }
 
+            System.out.println("My first thread." + i);
         }
     }
 }
