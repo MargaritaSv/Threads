@@ -23,16 +23,16 @@ public class Shrek implements Runnable {
 
             try {
                 System.out.println("Fiona!");
-                shrekWoman.start();
-                shrekWoman.join(2000);
+                shrekWoman.start();//dava i start(vika q)
+                shrekWoman.join(2000);//until "shrekWoman" ended foresee action ,he doesn't move (but he wait 2000sek)
 
-                if (!hasGoodDay) {
+                if (!hasGoodDay) {   //if he doesn't  wait her(2000)
                     System.err.println("eeeeeeeeee give me deeee :D");
                     System.out.println("I'll sleep bad!");
                     return;
                 }
 
-                System.out.println("I'll have a nightmares");
+                System.out.println("Good night!"); //and if he wait her
             } catch (InterruptedException ex) {
                 System.out.println("I have bad morning!");
                 return;

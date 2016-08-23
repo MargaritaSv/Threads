@@ -5,7 +5,7 @@ package Threads.ShreckDay;
  */
 public class ShrekWoman implements Runnable {
     Shrek shrek;
-    private Thread shrekThread;
+    private Thread shrekThread;//composition
 
     public Shrek getShrek() {
         return shrek;

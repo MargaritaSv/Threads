@@ -27,10 +27,10 @@ public class HorseRace {
         annalist.start();
 
         for (Thread t : horsesThreads) {
-            if (Math.random() > 0.7) {
-                t.interrupt();
-                t.join(); //InterrupEx... ot try-catch
-            }
+         //   if (Math.random() > 0.7) {
+           //     t.interrupt();
+                t.join(); //main thread will wait all other thread to finish
+           // }
         }
 
         System.out.println("The race is over!Nice day people! :)");

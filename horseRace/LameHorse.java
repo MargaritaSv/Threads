@@ -8,7 +8,7 @@ public class LameHorse extends Horse {
         super(name, metros);
     }
 
-    @Override
+    @Override  // runtime polymorphism
     public int getSpeed() {
         return super.getSpeed() / 3;
     }
