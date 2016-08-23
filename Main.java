@@ -16,7 +16,7 @@ public class Main {
 
 
         //lambda
-        new Thread(()->System.out.println("thread with lambda")).start();
+        new Thread(() -> System.out.println("thread with lambda")).start();
 
         //using anonymous class
         new Thread(new Runnable() {
@@ -28,7 +28,7 @@ public class Main {
 
 
         for (int i = 0; i < 30; i++) {
-         System.out.println("main thread "+i);
+            System.out.println("main thread " + i);
         }
     }
 }

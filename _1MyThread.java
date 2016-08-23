@@ -8,7 +8,8 @@ public class _1MyThread extends Thread {
     public void run() {
 
         for (int i = 0; i < 30; i++) {
-            System.err.println("Another thread ->"+i);
+            System.err.println("Another thread ->" + i);
 
-        }    }
+        }
+    }
 }
