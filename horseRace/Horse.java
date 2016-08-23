@@ -4,6 +4,7 @@ package Threads.horseRace;
  * Created by magy on 23.08.16.
  */
 public class Horse implements Runnable {
+    public static final int METERS = 200;
     private String name;
     private int metros;
 
@@ -19,7 +20,7 @@ public class Horse implements Runnable {
     @Override
     public void run() {
         System.out.println("Horse's name: " + this.getName());
-        for (int i = 1; i <= 200; i++) {
+        for (int i = 1; i <= METERS; i++) {
             try {
                 Thread.sleep(500);
             } catch (InterruptedException ex) {
@@ -34,5 +35,7 @@ public class Horse implements Runnable {
             System.out.println("Thread who started me is " + Thread.currentThread().getName());
             System.out.println("I am " + this.getName() + " and in " + i + "meter");
         }
+
+        System.out.println(this.getName() + " --> FINISH!");
     }
 }
