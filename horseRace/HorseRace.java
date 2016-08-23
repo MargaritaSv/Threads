@@ -11,7 +11,8 @@ import java.util.Set;
 public class HorseRace {
     public static void main(String[] args) {
         Set<Horse> horses = new HashSet<>();
-        horses.addAll(Arrays.asList(new Horse("Fasturcho", 882), new Horse("Burzii", 678), new Horse("Slowercho", 400), new Horse("ToiSiZnae", 500)));
+        horses.addAll(Arrays.asList(new Horse("Fasturcho", 882), new Horse("Burzii", 678), new Horse("Slowercho", 400),
+                new Horse("ToiSiZnae", 500), new LameHorse("Kalinka", 500), new LameHorse("Minzyharche", 300)));
 
         Collection<Thread> horsesThreads = new HashSet<>();
         for (Horse horse : horses) {

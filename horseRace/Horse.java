@@ -6,15 +6,19 @@ package Threads.horseRace;
 public class Horse implements Runnable {
     public static final int METERS = 50;
     private String name;
-    private int metros;
+    private int speed;
 
     public Horse(String name, int metros) {
         this.name = name;
-        this.metros = metros;
+        this.speed = metros;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getSpeed() {
+        return speed;
     }
 
     @Override
@@ -22,7 +26,7 @@ public class Horse implements Runnable {
         System.out.println("Horse's name: " + this.getName());
         for (int i = 1; i <= METERS; i++) {
             try {
-                Thread.sleep(500);
+                Thread.sleep(500 / getSpeed());
             } catch (InterruptedException ex) {
                 System.out.println(ex.getMessage());
             }
@@ -36,6 +40,6 @@ public class Horse implements Runnable {
             System.out.println("I am " + this.getName() + " and in " + i + "m.");
         }
 
-        System.out.println(this.getName() + " --> FINISH!");
+        System.out.println(this.getName() + "                        --> FINISH!");
     }
 }
