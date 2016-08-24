@@ -6,7 +6,7 @@ package Threads.synchronizeThreads;
 public class TreeStore {
     private static final double COEFICIENT_FOR_PRODUCTION = 0.6;
     private static final double COEFICIENT_FOR_SELL = 0.3;
-    private static final int MAX_THREE = 200000;
+    private static final int MAX_THREE = 200;
     private int currTree = 0;
 
     public int getCurrTree() {
@@ -16,12 +16,15 @@ public class TreeStore {
     public void addTree(int numberOfTree) {
         if ((numberOfTree > 0) && (numberOfTree + currTree <= MAX_THREE)) {
             currTree += numberOfTree;
+            System.out.println("Tree store add " + numberOfTree + " woods.");
+
         }
     }
 
     public void sellTree(int numberOfTree) {
         if ((numberOfTree > 0) && (currTree - numberOfTree >= 0)) {
             currTree -= numberOfTree;
+            System.out.println("Tree store sell " + numberOfTree + " woods.");
         }
     }
 

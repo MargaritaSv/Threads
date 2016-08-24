@@ -9,7 +9,9 @@ public class Main {
         Forest forest = new Forest(treeStore);
         WoodsMan woodsMan = new WoodsMan(treeStore);
 
-        new Thread(forest).start();
-        new Thread(woodsMan).start();
+       // for (int i = 0; i < 11; i++) {
+            new Thread(forest).start();
+            new Thread(woodsMan).start();
+       // }
     }
 }
