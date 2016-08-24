@@ -24,7 +24,6 @@ public class Forest implements Runnable {
                 }
             }
 
-
             //produce tree
             try {
                 Thread.sleep(2000);
@@ -32,7 +31,12 @@ public class Forest implements Runnable {
                 e.printStackTrace();
             }
 
-            
+            //notify others
+            if (this.treeStore.hasEnoughTree()) {
+                synchronized (treeStore) {
+                    this.treeStore.notify();
+                }
+            }
         }
     }
 }
