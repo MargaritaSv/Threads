@@ -31,6 +31,19 @@ public class WoodsMan implements Runnable {
                     }
                 }
             }
+
+            System.out.println("Woods man buy a three.");
+            synchronized (treeStore) {
+                treeStore.sellTree(howMuchToBuy);
+            }
+
+            if (treeStore.hasEnoughSpaceForTree()) {
+                synchronized (treeStore) {
+                    System.out.println("Other woods man can buy also.");
+                    treeStore.notify();
+                }
+            }
+
         }
     }
 }
