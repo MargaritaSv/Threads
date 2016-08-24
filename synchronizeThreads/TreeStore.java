@@ -13,4 +13,10 @@ public class TreeStore {
             currTree += numberOfTree;
         }
     }
+
+    public void sellTree(int numberOfTree) {
+        if ((numberOfTree > 0) && (currTree - numberOfTree >= 0)) {
+            currTree -= numberOfTree;
+        }
+    }
 }
