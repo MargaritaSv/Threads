@@ -11,6 +11,7 @@ public class Forest implements Runnable {
         this.treeStore = treeStore;
     }
 
+
     @Override
     public void run() {
         for (int i = 0; i < NUMBER_OF_TREES; i++) {
