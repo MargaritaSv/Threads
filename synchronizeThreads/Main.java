@@ -9,9 +9,13 @@ public class Main {
         Forest forest = new Forest(treeStore);
         WoodsMan woodsMan = new WoodsMan(treeStore);
 
-       // for (int i = 0; i < 11; i++) {
-            new Thread(forest).start();
-            new Thread(woodsMan).start();
-       // }
+        // for (int i = 0; i < 11; i++) {
+        new Thread(forest).start();
+        new Thread(woodsMan).start();
+        // }
+
+        Ekoravnovesie safeTree = new Ekoravnovesie();
+        new Thread(safeTree).setDaemon(true);
+        safeTree.run();
     }
 }
