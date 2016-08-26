@@ -107,6 +107,8 @@ public abstract class Car implements Runnable {
     }
 
     public static void main(String[] args) throws InterruptedException {
+        long starTime = System.currentTimeMillis();
+
         ExecutorService executorService = Executors.newFixedThreadPool(3);
 
         executorService.submit(new Engine(1));
@@ -124,5 +126,6 @@ public abstract class Car implements Runnable {
         executorService.shutdown();
         executorService.awaitTermination(1, TimeUnit.MINUTES);
 
+        System.out.println("The we need to make car's parts: " + (System.currentTimeMillis() - starTime));
     }
 }
