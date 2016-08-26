@@ -11,4 +11,24 @@ public abstract class Car {
         this.number = number;
     }
 
+    public abstract String getPartName();
+
+    public abstract int getTimeToBuild();
+
+    static class Seat extends Car {
+
+        public Seat(int number) {
+            super(number);
+        }
+
+        @Override
+        public String getPartName() {
+            return "seal";
+        }
+
+        @Override
+        public int getTimeToBuild() {
+            return 3000;
+        }
+    }
 }
