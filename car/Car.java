@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit;
  */
 public abstract class Car implements Runnable {
 
+    public static final int NUMBER_OF_SEATS = 5;
+    public static final int NUMBER_OF_TYRE = 3;
     private int number;
 
     public Car(int number) {
@@ -113,11 +115,11 @@ public abstract class Car implements Runnable {
 
         executorService.submit(new Engine(1));
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < NUMBER_OF_SEATS; i++) {
             executorService.submit(new Seat(i));
         }
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < NUMBER_OF_TYRE; i++) {
             executorService.submit(new Tyre(i));
         }
 
