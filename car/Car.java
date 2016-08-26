@@ -1,14 +1,27 @@
 package Threads.car;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * Created by magy on 26.08.16.
  */
-public abstract class Car {
+public abstract class Car implements Runnable {
 
     private int number;
 
     public Car(int number) {
         this.number = number;
+    }
+
+    @Override
+    public void run() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public abstract String getPartName();
@@ -89,5 +102,10 @@ public abstract class Car {
         public int getTimeToBuild() {
             return TIME_TO_BUILD_ENGINE;
         }
+    }
+
+    public static void main(String[] args) {
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+        executorService.submit(new Engine(1));
     }
 }
