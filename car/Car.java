@@ -17,6 +17,8 @@ public abstract class Car {
 
     static class Seat extends Car {
 
+        public static final int TIME_TO_BUILD_SEAL = 3000;
+
         public Seat(int number) {
             super(number);
         }
@@ -28,7 +30,26 @@ public abstract class Car {
 
         @Override
         public int getTimeToBuild() {
-            return 3000;
+            return TIME_TO_BUILD_SEAL;
+        }
+    }
+
+    static class Tyre extends Car {
+
+        public static final int TIME_TO_BUILD_TYRE = 3000;
+
+        public Tyre(int number) {
+            super(number);
+        }
+
+        @Override
+        public String getPartName() {
+            return "tyre";
+        }
+
+        @Override
+        public int getTimeToBuild() {
+            return TIME_TO_BUILD_TYRE;
         }
     }
 }
