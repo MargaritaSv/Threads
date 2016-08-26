@@ -1,8 +1,8 @@
 package Threads.car;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by magy on 26.08.16.
@@ -22,6 +22,8 @@ public abstract class Car implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        System.out.println("Make this part " + getPartName() + " №" + number);
     }
 
     public abstract String getPartName();
@@ -104,8 +106,23 @@ public abstract class Car implements Runnable {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(3);
+
         executorService.submit(new Engine(1));
+
+        for (int i = 0; i < 4; i++) {
+            executorService.submit(new Seat(i));
+        }
+
+        for (int i = 0; i < 4; i++) {
+            executorService.submit(new Tyre(i));
+        }
+
+        executorService.submit(new Frame(1));
+
+        executorService.shutdown();
+        executorService.awaitTermination(1, TimeUnit.MINUTES);
+
     }
 }
