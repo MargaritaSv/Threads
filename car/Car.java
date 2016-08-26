@@ -52,4 +52,23 @@ public abstract class Car {
             return TIME_TO_BUILD_TYRE;
         }
     }
+
+    static class Frame extends Car {
+
+        public static final int TIME_TO_BUILD_FRAME = 3000;
+
+        public Frame(int number) {
+            super(number);
+        }
+
+        @Override
+        public String getPartName() {
+            return "frame";
+        }
+
+        @Override
+        public int getTimeToBuild() {
+            return TIME_TO_BUILD_FRAME;
+        }
+    }
 }
